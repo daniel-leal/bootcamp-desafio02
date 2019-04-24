@@ -1,0 +1,24 @@
+{% extends "_layouts/default.njk" %}
+
+{% block body %}
+<div class="content">
+  <strong>Agendamentos</strong>
+
+  {% for appointment in appointments %}
+    <div class="provider">
+      <div>
+        <img src="/files/{{ appointment.Client.avatar }}" alt="avatar">
+      </div>
+      <div class="clientcontent">
+        <strong>{{ appointment.Client.name }}</strong>
+        <strong>{{ appointment.Client.email }}</strong>
+        <strong>{{ appointment.date.toLocaleString("pt-BR") }}</strong>
+      </div>
+    </div>
+  {% endfor %}
+
+
+  <a href="/app/dashboard">Voltar ao Dashboard</a>
+
+</div>
+{% endblock %}

@@ -5,6 +5,7 @@ const upload = require('multer')(multerConfig)
 const routes = express.Router()
 
 const authMiddleware = require('./app/middlewares/auth')
+const providerMiddleware = require('./app/middlewares/provider')
 const guestMiddleware = require('./app/middlewares/guest')
 
 const UserController = require('./app/controllers/UserController')
@@ -38,6 +39,13 @@ routes.get('/app/dashboard', DashboardController.index)
 
 routes.get('/app/appointments/new/:provider', AppointmentController.create)
 routes.post('/app/appointments/new/:provider', AppointmentController.store)
+
+routes.get(
+  '/app/appointments/show',
+  providerMiddleware,
+  AppointmentController.show
+)
+
 routes.get('/app/available/:provider', AvailableController.index)
 
 module.exports = routes

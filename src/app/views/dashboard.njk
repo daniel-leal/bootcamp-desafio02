@@ -18,6 +18,9 @@
       {% endfor %}
     </ul>
 
+    {% if isProvider %}
+      <a href="/app/appointments/show" class="appointments">Ver Agendamentos</a>
+    {% endif %}
     <a href="/app/logout" class="logout">Sair</a>
   </div>
 {% endblock %}
