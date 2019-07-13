@@ -30,3 +30,7 @@ tmp/uploads/*
 tmp/sessions/*
 
 .vscode
+
+# Locks
+yarn.lock
+package-lock.json
